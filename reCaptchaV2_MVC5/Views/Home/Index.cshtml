@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "Recaptcha";
+}
+
+@Html.ActionLink("AjaxRecaptcha", "AjaxRecaptcha", "Home")<br />
+@Html.ActionLink("TwoViews", "TwoViews", "Home")
+
+<hr />
+
+@using (Html.BeginForm("ValidateReCaptcha", "Home", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="g-recaptcha" data-sitekey="6LdfGyATAAAAADvIdChf1NZ_6fsUfaRqVgx77W7f"></div>
+    <input type="submit" class="btn btn-default" value="Register" />
+
+    @Html.ValidationSummary("")
+
+}
+
+@section Scripts {
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+}
